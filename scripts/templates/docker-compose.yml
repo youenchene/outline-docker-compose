@@ -95,7 +95,7 @@ services:
     restart: always
     volumes:
       - ./data/https-portal-data:/var/lib/https-portal
-      - ./config/default.ssl.conf.erb:/var/lib/nginx-conf/default.ssl.conf.erb:ro
+      - ./config/https-portal/default.ssl.conf.erb:/var/lib/nginx-conf/default.ssl.conf.erb:ro
     healthcheck:
       test: ["CMD", "service", "nginx", "status"]
       interval: 30s
