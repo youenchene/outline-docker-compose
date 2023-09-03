@@ -91,9 +91,7 @@ services:
       - '80:80'
       - '443:443'
     depends_on:
-      - wk-minio
-      - wk-outline
-      - wk-oidc-server
+      - wk-nginx
     restart: always
     volumes:
       - ./data/https-portal-data:/var/lib/https-portal
