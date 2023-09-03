@@ -85,6 +85,30 @@ services:
       - wk-oidc-server
     networks:
       - ${NETWORKS}
+  wk-https:
+    image: steveltn/https-portal
+    ports:
+      - '80:80'
+      - '443:443'
+    depends_on:
+      - wk-minio
+      - wk-outline
+      - wk-oidc-server
+    restart: always
+    volumes:
+      - ./data/https-portal-data:/var/lib/https-portal
+      - ./config/default.ssl.conf.erb:/var/lib/nginx-conf/default.ssl.conf.erb:ro
+    healthcheck:
+      test: ["CMD", "service", "nginx", "status"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    environment:
+      DOMAINS: '${HTTP_DNS}'
+      STAGE: 'production'
+      WEBSOCKET: 'true'
+    networks:
+      - ${NETWORKS}
 networks:
   ${NETWORKS}:
     external: ${NETWORKS_EXTERNAL}
