@@ -26,6 +26,10 @@ MINIO_MC_VERSION=RELEASE.2022-11-17T21-20-39Z
 HTTP_IP=127.0.0.1
 HTTP_PORT_IP=8888
 
+# HTTPS portal
+# Front end DNS
+HTTP_DNS=
+
 # Docker
 # If you server behind a proxy(nginx), and the proxy created by docker. You can use the proxy's network. Set the `NETWORKS` to proxy's network name, and set `NETWORKS_EXTERNAL` to `true` .
 # The sample config for host nginx can be find in `config/sample/nginx_outline.conf`.
