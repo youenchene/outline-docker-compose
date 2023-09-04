@@ -15,6 +15,10 @@ install: gen-conf start
 	${docker-compose} exec ${oidc_server_container} bash -c "python manage.py loaddata oidc-server-outline-client"
 	cd ./scripts && bash ./main.sh reload_nginx
 
+reinstall: gen-conf start
+	sleep 1
+	cd ./scripts && bash ./main.sh reload_nginx
+
 restart: stop start
 
 logs:

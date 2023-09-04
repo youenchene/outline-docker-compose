@@ -74,7 +74,7 @@ services:
   wk-nginx:
     image: nginx
     ports:
-      - ${HTTP_IP}:${HTTP_PORT_IP}:80
+      - ${HTTP_IP}:${HTTP_PORT_IP}:81
     volumes:
       - ./config/nginx/:/etc/nginx/conf.d/:ro
       - ./data/uc/static_root:/uc/static_root:ro
